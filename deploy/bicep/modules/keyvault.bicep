@@ -1,9 +1,10 @@
 param accessPolicies array = []
 param kvName string
+param location string = resourceGroup().location
 
 resource keyvault 'Microsoft.KeyVault/vaults@2020-04-01-preview' = {
   name: kvName
-  location: resourceGroup().location
+  location: location
   properties: {
     tenantId: subscription().tenantId
     sku: {

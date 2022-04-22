@@ -1,5 +1,5 @@
 param serviceBusNamespaceName string
-param location string
+param location string = resourceGroup().location
 
 resource serviceBus 'Microsoft.ServiceBus/namespaces@2021-06-01-preview' = {
   name: serviceBusNamespaceName

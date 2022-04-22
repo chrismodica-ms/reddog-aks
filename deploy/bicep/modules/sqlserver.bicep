@@ -1,6 +1,6 @@
 param sqlServerName string
 param sqlDatabaseName string
-param location string
+param location string = resourceGroup().location
 param sqlAdminLogin string
 param sqlAdminLoginPassword string
 

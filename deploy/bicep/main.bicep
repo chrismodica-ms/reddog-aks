@@ -1,5 +1,6 @@
 // Params
 param uniqueServiceName string
+param location string = resourceGroup().location
 param serviceBusNamespaceName string = resourceGroup().name
 param redisName string = resourceGroup().name
 param cosmosAccountName string = resourceGroup().name
@@ -63,7 +64,7 @@ module serviceBus 'modules/servicebus.bicep' = {
   name: '${deployment().name}--servicebus'
   params: {
     serviceBusNamespaceName: serviceBusNamespaceName
-    location: resourceGroup().location
+    location: location
   }
 }
 
@@ -71,7 +72,7 @@ module serviceBus 'modules/servicebus.bicep' = {
 //   name: '${deployment().name}--redis'
 //   params: {
 //     redisName: redisName
-//     location: resourceGroup().location
+//     location: location
 //   }
 // }
 
@@ -81,7 +82,7 @@ module cosmos 'modules/cosmos.bicep' = if (stateStore == 'cosmos') {
     cosmosAccountName: cosmosAccountName
     cosmosDatabaseName: cosmosDatabaseName
     cosmosCollectionName: cosmosCollectionName
-    location: resourceGroup().location
+    location: location
   }
 }
 
@@ -90,7 +91,7 @@ module storage 'modules/storage.bicep' = {
   params: {
     storageAccountName: storageAccountName
     blobContainerName: blobContainerName
-    location: resourceGroup().location
+    location: location
   }
 }
 
@@ -101,7 +102,7 @@ module sqlServer 'modules/sqlserver.bicep' = {
     sqlDatabaseName: sqlDatabaseName
     sqlAdminLogin: sqlAdminLogin
     sqlAdminLoginPassword: sqlAdminLoginPassword
-    location: resourceGroup().location
+    location: location
   }
 }
 

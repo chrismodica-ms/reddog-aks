@@ -1,3 +1,4 @@
+param location string = resourceGroup().location
 param name string
 //param adminUsername string
 //param adminPublicKey string
@@ -19,7 +20,7 @@ var addonProfiles = {
 
 resource aks 'Microsoft.ContainerService/managedClusters@2021-05-01' = {
   name: name
-  location: resourceGroup().location  
+  location: location  
   identity: {
     type: 'SystemAssigned'
   }

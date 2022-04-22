@@ -1,5 +1,5 @@
 param redisName string
-param location string
+param location string = resourceGroup().location
 
 resource redis 'Microsoft.Cache/redis@2020-12-01' = {
   name: redisName

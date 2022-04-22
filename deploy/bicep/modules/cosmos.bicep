@@ -1,4 +1,4 @@
-param location string
+param location string = resourceGroup().location
 param cosmosAccountName string
 param cosmosDatabaseName string
 param cosmosCollectionName string

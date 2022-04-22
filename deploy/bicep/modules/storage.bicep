@@ -1,6 +1,6 @@
 param storageAccountName string
 param blobContainerName string
-param location string
+param location string = resourceGroup().location
 
 resource storageAccount 'Microsoft.Storage/storageAccounts@2021-06-01' = {
   name: storageAccountName
