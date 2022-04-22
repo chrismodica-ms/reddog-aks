@@ -56,6 +56,8 @@ az feature register --namespace Microsoft.ContainerService --name AKS-ExtensionM
 az provider register --namespace Microsoft.Kubernetes --consent-to-permissions
 az provider register --namespace Microsoft.ContainerService --consent-to-permissions
 az provider register --namespace Microsoft.KubernetesConfiguration --consent-to-permissions
+az provider register --namespace Microsoft.OperationsManagement --consent-to-permissions
+
 az extension add -n k8s-configuration
 az extension add -n k8s-extension
 az extension update -n k8s-configuration
